@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import base64
 
 st.title("Web App Football Data")
 
@@ -36,3 +37,13 @@ df = load_data(selected_league, selected_season)
 
 st.subheader(f"Dataframe:{selected_league}")
 st.dataframe(df)
+
+
+def filedownloader(df):
+  csv = df.to_csv(index=False)
+  b64 = base64.b64encode(csv.encode()).decode()
+  href = f"a href="data:file/csv;base64,{b64}" download='Base_de_Dados.csv">Download CSV files</a>
+  return href
+
+
+st.marckdown(filedownload(df), unsafe_allow_html = True)
