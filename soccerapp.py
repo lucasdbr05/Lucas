@@ -39,7 +39,7 @@ st.subheader(f"Dataframe:{selected_league}")
 st.dataframe(df)
 
 
-def filedownloader(df):
+def filedownload(df):
   csv = df.to_csv(index=False)
   b64 = base64.b64encode(csv.encode()).decode()
   href = f"<a href='data:file/csv;base64,{b64}' download='Base_de_Dados.csv'>Download CSV files</a>"
