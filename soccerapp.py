@@ -46,4 +46,4 @@ def filedownloader(df):
   return href
 
 
-st.marckdown(filedownload(df), unsafe_allow_html = True)
+st.markdown(filedownload(df), unsafe_allow_html = True)
