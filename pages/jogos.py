@@ -10,7 +10,7 @@ st.title("Jogos do Dia")
 dia = st.date_input("Data de Análise" ,date.today())
 
 def load_data_jogos():
-  data_jogos = pd.read_csv(f"https://github.com/futpythontrader/YouTube/blob/main/Jogos_do_Dia_FlashScore/{str(dia)}_Jogos_do_Dia_FlashScore.csv?raw=True")
+  data_jogos = pd.read_csv(f"https://github.com/futpythontrader/YouTube/blob/main/Jogos_do_Dia_FlashScore/{str(dia)}_Jogos_do_Dia_FlashScore.csv?raw=true")
   return data_jogos
 
 
