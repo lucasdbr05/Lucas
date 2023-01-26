@@ -6,7 +6,7 @@ import base64
 st.title("Web App Football Data")
 
 st.sidebar.header("Leagues")
-selected_league = st.sidebar.selectbox('League',['England', 'Germany', 'Italy', 'Spain', 'France'])
+selected_league = st.sidebar.selectbox('League',['England', 'Germany', 'Italy', 'Spain', 'France', 'Portugal'])
 
   
 
@@ -16,14 +16,14 @@ selected_season = st.sidebar.selectbox('Season',['2022/2021', '2021/2020','2020/
 
 def load_data(league, season):
   
-  countries = ['England', 'Germany', 'Italy', 'Spain', 'France']
-  codes = ['E0','D1','I1','SP1','F1']
+  countries = ['England', 'Germany', 'Italy', 'Spain', 'France', 'Portugal']
+  codes = ['E0','D1','I1','SP1','F1','P1']
   for i, country in enumerate(countries):
     if selected_league == country:
       league = codes[i]
       
-  epochs=['2022/2021', '2021/2020','2020/2019']
-  y_codes = ['2122','2021','1920']
+  epochs=['2023/2022','2022/2021', '2021/2020','2020/2019']
+  y_codes = ['2223','2122','2021','1920']
   for i, epoch in enumerate(epochs):
     if selected_season == epoch:
       season = y_codes[i]
