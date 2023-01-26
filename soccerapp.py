@@ -12,7 +12,7 @@ selected_league = st.sidebar.selectbox('League',['England', 'Germany', 'Italy', 
 
 
 st.sidebar.header("Season")
-selected_season = st.sidebar.selectbox('Season',['2022/2021', '2021/2020','2020/2019'])
+selected_season = st.sidebar.selectbox('Season',['2023/2022','2022/2021', '2021/2020','2020/2019'])
 
 def load_data(league, season):
   
