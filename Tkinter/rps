@@ -1,0 +1,76 @@
+user_wins =0
+computer_wins =0
+ties = 0
+user_choice= ""
+comp_choice = ""
+
+
+
+def choice_to_number(choice):
+    rps = {'rock':0,'paper':1,'scissor':2}
+    return rps[choice]
+def number_to_choice(number):
+    rps = {0:'rock', 1:'paper', 2:'scissor'}
+    return rps[number]
+def random_computer_choice():
+    return random.choice(['rock','paper','scissor'])
+
+
+def result(user_choice,comp_choice):
+    global user_wins, computer_wins, ties
+    user = choice_to_number(user_choice)
+    comp = choice_to_number(comp_choice)
+    if (user==comp):
+        print('Tie')
+        ties +=1
+    elif ((user - comp)%3 == 1):
+        print('You win!')
+        user_wins +=1
+    else:
+        print('You loss!')
+        computer_wins += 1
+
+    text_area = Text(master= rps,font=('arial',15,'italic bold'),relief = RIDGE, bg='#033642', fg='white', width=24)
+    text_area.grid(column=0, row=4)
+    answer = f'Your choice: {user_choice}\nComputer choice: {comp_choice}\nYou won {user_wins} times.\nThe computer won {computer_wins} times.\nTied {ties} times.'
+    text_area.insert(END,answer)
+
+
+def rock():
+    global user_choice, comp_choice
+    user_choice = 'rock'
+    comp_choice = random_computer_choice()
+    return result(user_choice,comp_choice)
+
+
+def scissor():
+    global user_choice, comp_choice
+    user_choice = 'scissor'
+    comp_choice = random_computer_choice()
+    return result(user_choice,comp_choice)
+
+
+def paper():
+    global user_choice, comp_choice
+    user_choice = 'paper'
+    comp_choice = random_computer_choice()
+    return result(user_choice,comp_choice)
+
+
+
+
+
+rps.geometry('300x300')
+rps.title('Rock Paper Scissor')
+
+
+button_rock = Button(text='         ROCK           ', bg='#808487',font=('arial',15,'italic bold'),relief = RIDGE, activebackground='#05945B', activeforeground='white', width=24, command=rock)
+button_rock.grid(column=0, row=0)
+button_paper = Button(text='         PAPER           ', bg='#808487',font=('arial',15,'italic bold'),relief = RIDGE, activebackground='#05945B', activeforeground='white', width=24, command=paper)
+button_paper.grid(column=0, row=1)
+button_scissor = Button(text='         SCISSOR           ', bg='#808487',font=('arial',15,'italic bold'),relief = RIDGE, activebackground='#05945B', activeforeground='white', width=24, command=scissor)
+button_scissor.grid(column=0, row=2)
+
+
+
+rps.mainloop()
